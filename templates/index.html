@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'timer.css' %}">
+</head>
+<body>
+
+    <div id="app"></div>
+    <div class="container">
+          <form method="POST">
+        {% csrf_token %}
+          {% for question in questions %}
+        <p>Q){{question.que}}</p>
+        
+        <input type="radio" value="1" name="{{name}}">{{question.option1}} 
+        <input type="radio" value="2" name="{{name}}">{{question.option2}}
+        <input type="radio" value="3" name="{{name}}">{{question.option3}}
+        <input type="radio" value="4" name="{{name}}">{{question.option4}} 
+        
+  
+        {% endfor %} 
+        <input type="submit"> 
+    </form>
+
+</div>
+    <script src="{% static 'quiz.js' %}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
